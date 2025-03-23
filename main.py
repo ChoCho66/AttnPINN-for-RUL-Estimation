@@ -27,5 +27,5 @@ if __name__ == '__main__':
     X_test = np.hstack((x_test, t_test))
     u_i, x_i, t_i = d.get_test_unit_data(index=110)
     pinn = PINN.PINN(x, u, fau, X_test, u_test, hidden_dim=3, derivatives_order=2, lr=0.001, batch_size=128, coef=100)
-    # pinn.train(1000)
+    pinn.train(1000)
     pinn.predict()

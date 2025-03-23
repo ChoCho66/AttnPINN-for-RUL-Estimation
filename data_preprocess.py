@@ -51,7 +51,7 @@ class CMAPSSDataset:
             index = int(data[0])
             data[1] = self.test_rul[index - 1] + self.RUL[index - 1] - data[1]
             self.test_array[index - 1].append(data)
-        self.test_array = np.array(self.test_array)
+        # self.test_array = np.array(self.test_array)
 
     def get_test_id(self):
         return self.test_data[:, 0]
@@ -74,8 +74,9 @@ class CMAPSSDataset:
             self.train_array[int(index[i] - 1)].append(train[i])
         failure = np.zeros((train.shape[0]))
         k = 0
-        self.train_array = np.array(self.train_array)
-        for i in range(self.train_array.shape[0]):
+        # self.train_array = np.array(self.train_array)
+        # for i in range(self.train_array.shape[0]):
+        for i in range(len(self.train_array)):
             self.train_array[i] = np.array(self.train_array[i])
             if self.train_array[i][-1, 10] > self.train_array[i][0, 10]:
                 for j in range(self.train_array[i].shape[0]):
